@@ -1,5 +1,10 @@
+services: "prod-db": {
+	image: "ghcr.io/acorn-io/mariadb:v10.#.#-#"
+}
+
 acorns: students: {
-	image:               "ghcr.io/cloudnautique/acorn-docs-hands-on-example:prod"
+	image: "ghcr.io/cloudnautique/acorn-docs-hands-on-example:prod"
+	links: ["prod-db:db"]
 	autoUpgrade:         true
 	autoUpgradeInterval: "5m"
 }
